@@ -1,20 +1,20 @@
 package co.edu.uco.publiuco.dto;
 
 import java.util.UUID;
-public final class EstadoTipoRelacionInstitucionDTO {
+public final class EstadoRevisorDTO {
 
 	private UUID identificador;
 	private String nombre;
 	private String descripcion;
 
-	public EstadoTipoRelacionInstitucionDTO() {
+	public EstadoRevisorDTO() {
 		super();
 		this.identificador = generarNuevoUUID();
 		this.nombre = obtenerValorDefecto();
 		this.descripcion = obtenerValorDefecto();
 	}
 
-	public EstadoTipoRelacionInstitucionDTO(UUID identificador, String nombre, String descripcion) {
+	public EstadoRevisorDTO(UUID identificador, String nombre, String descripcion) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
@@ -25,7 +25,7 @@ public final class EstadoTipoRelacionInstitucionDTO {
 		return identificador;
 	}
 
-	public final EstadoTipoRelacionInstitucionDTO setIdentificador(final UUID identificador) {
+	public final EstadoRevisorDTO setIdentificador(final UUID identificador) {
 		this.identificador = identificador;
 		if (!esVaciaONulaLaCadena(identificador.toString())) {
 			this.identificador = generarNuevoUUID();
@@ -37,7 +37,7 @@ public final class EstadoTipoRelacionInstitucionDTO {
 		return nombre;
 	}
 
-	public final EstadoTipoRelacionInstitucionDTO setNombre(final String nombre) {
+	public final EstadoRevisorDTO setNombre(final String nombre) {
 
 		if (!esVaciaONulaLaCadena(nombre)) {
 			this.nombre = nombre.trim();
@@ -49,7 +49,7 @@ public final class EstadoTipoRelacionInstitucionDTO {
 		return descripcion;
 	}
 
-	public final EstadoTipoRelacionInstitucionDTO setDescripcion(final String descripcion) {
+	public final EstadoRevisorDTO setDescripcion(final String descripcion) {
 		this.descripcion = descripcion;
 
 		if(esVaciaONulaLaCadena(descripcion)){
@@ -74,5 +74,4 @@ public final class EstadoTipoRelacionInstitucionDTO {
 	}
 
 	//FIN MÉTODOS CROSS CUTTING
-
 }
