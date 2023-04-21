@@ -1,15 +1,13 @@
 package co.edu.uco.publiuco.dto;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
-public final class PublicacionDTO {
 
-	private UUID identificador;
-	private CategoriaDTO categoria;
-	private TipoAccesoDTO tipoAcceso;
-	private LocalDate fechaPublicacion;
-	private VersionDTO ultimaVersion;
-	private EstadoVersionDTO estado;
-
-
+public class PublicacionDTO {
+    private UUID identificador;
+    private CategoriaDTO categoria;
+    private TipoAccesoDTO tipoAcceso;
+    private LocalDateTime fechaPublicacion;
+    private VersionDTO versionPublicada;
+    private EstadoPublicacionDTO estado;
 }

@@ -1,78 +1,65 @@
 package co.edu.uco.publiuco.dto;
 
 import java.util.UUID;
+import static co.edu.uco.publiuco.dto.ValidacionesCrosscutting.*;
+
 public final class EstadoTipoRelacionInstitucionDTO {
 
-	private UUID identificador;
-	private String nombre;
-	private String descripcion;
+    private UUID identificador;
+    private String nombre;
+    private String descripcion;
 
-	public EstadoTipoRelacionInstitucionDTO() {
-		super();
-		this.identificador = generarNuevoUUID();
-		this.nombre = obtenerValorDefecto();
-		this.descripcion = obtenerValorDefecto();
-	}
+    public EstadoTipoRelacionInstitucionDTO() {
+        super();
+        setIdentificador(this.identificador);
+        setNombre(obtenerValorDefecto());
+        setDescripcion(obtenerValorDefecto());
+    }
 
-	public EstadoTipoRelacionInstitucionDTO(UUID identificador, String nombre, String descripcion) {
-		super();
-		setIdentificador(identificador);
-		setNombre(nombre);
-		setDescripcion(descripcion);
-	}
+    public EstadoTipoRelacionInstitucionDTO(UUID identificador, String nombre, String descripcion) {
+        super();
+        setIdentificador(identificador);
+        setNombre(nombre);
+        setDescripcion(descripcion);
+    }
 
-	public final UUID getIdentificador() {
-		return identificador;
-	}
+    public final EstadoTipoRelacionInstitucionDTO setIdentificador(final UUID identificador) {
+        this.identificador = identificador;
+        if (!estaNulaLaCadena(identificador.toString())) {
+            this.identificador = generarNuevoUUID();
+        }
+        return this;
+    }
 
-	public final EstadoTipoRelacionInstitucionDTO setIdentificador(final UUID identificador) {
-		this.identificador = identificador;
-		if (!esVaciaONulaLaCadena(identificador.toString())) {
-			this.identificador = generarNuevoUUID();
-		}
-		return this;
-	}
+    public final EstadoTipoRelacionInstitucionDTO setNombre(final String nombre) {
 
-	public final String getNombre() {
-		return nombre;
-	}
+        this.nombre = "";
+        if (!estaNulaLaCadena(nombre)) {
+            this.nombre = nombre.trim();
+        }
 
-	public final EstadoTipoRelacionInstitucionDTO setNombre(final String nombre) {
+        return this;
+    }
 
-		if (!esVaciaONulaLaCadena(nombre)) {
-			this.nombre = nombre.trim();
-		}
-		return this;
-	}
+    public final EstadoTipoRelacionInstitucionDTO setDescripcion(final String descripcion) {
 
-	public final String getDescripcion() {
-		return descripcion;
-	}
+        this.descripcion = descripcion;
+        if(!estaNulaLaCadena(descripcion)){
+            this.descripcion = getNombre();
+        }
 
-	public final EstadoTipoRelacionInstitucionDTO setDescripcion(final String descripcion) {
-		this.descripcion = descripcion;
+        return this;
+    }
 
-		if(esVaciaONulaLaCadena(descripcion)){
-			this.descripcion = getNombre();
-		}
+    public final UUID getIdentificador() {
+        return identificador;
+    }
 
-		return this;
-	}
+    public final String getNombre() {
+        return nombre;
+    }
 
-	//INICIO Métodos de CROSS CUTTING
-
-	public static boolean esVaciaONulaLaCadena (String cadena) {
-		return cadena == null || "".equals(cadena.trim().intern());
-	}
-
-	public static UUID generarNuevoUUID() {
-		return UUID.randomUUID();
-	}
-
-	public static String obtenerValorDefecto(){
-		return "";
-	}
-
-	//FIN MÉTODOS CROSS CUTTING
-
+    public final String getDescripcion() {
+        return descripcion;
+    }
 }
