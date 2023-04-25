@@ -24,7 +24,7 @@ public final class ComentarioLectorDTO {
 		setPublicacion(new PublicacionDTO());
 		setComentarioPadre(new ComentarioLectorDTO());
 		setCotenido(UtilText.getDefaultValue());
-		setFechaCalificacion(UtilDate.getDefaultValue());
+		setFechaCalificacion(UtilDate.getDefault());
 		setEstado(new EstadoDTO());
 	}
 

@@ -21,8 +21,8 @@ public class ObservacionRevisionDTO {
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setEscritorPublicacion(new EscritorPublicacionDTO());
         setComentarioRevisor(new ComentarioRevisorDTO());
-        setFechaReportePublicacion(UtilDate.getDefaultValue());
-        setFechaRevisionObservacion(UtilDate.getDefaultValue());
+        setFechaReportePublicacion(UtilDate.getDefault());
+        setFechaRevisionObservacion(UtilDate.getDefault());
         setObservacion(UtilText.getDefaultValue());
         setEstado(new EstadoDTO());
     }

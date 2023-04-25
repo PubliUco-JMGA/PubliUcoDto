@@ -46,6 +46,7 @@ public class PersonaDTO {
         setCorreoElectronico(correoElectronico);
         setIndicadorPais(indicadorPais);
         setNumeroTelefonoMovil(numeroTelefonoMovil);
+        setTipoRelacionInstitucion(tipoRelacionInstitucion);
         setEstado(estado);
     }
 

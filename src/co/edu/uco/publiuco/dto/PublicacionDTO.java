@@ -18,7 +18,7 @@ public class PublicacionDTO {
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setCategoria(new CategoriaDTO());
         setTipoAcceso(new TipoAccesoDTO());
-        setFechaPublicacion(UtilDate.getDefaultValue());
+        setFechaPublicacion(UtilDate.getDefault());
         setVersionPublicada(new VersionDTO());
         setEstado(new EstadoDTO());
     }

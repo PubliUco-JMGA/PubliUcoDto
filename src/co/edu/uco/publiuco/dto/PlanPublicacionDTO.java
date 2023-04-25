@@ -1,7 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
 import co.edu.uco.publiuco.crosscutting.utils.UtilDate;
-import co.edu.uco.publiuco.crosscutting.utils.UtilInt;
+import co.edu.uco.publiuco.crosscutting.utils.UtilNumber;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.time.LocalDateTime;
@@ -19,9 +19,9 @@ public class PlanPublicacionDTO {
         super();
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setPublicacion(new PublicacionDTO());
-        setPrecio(UtilInt.DEFAULT);
-        setFechaDesde(UtilDate.getDefaultValue());
-        setFechaHasta(UtilDate.getDefaultValue());
+        setPrecio(UtilNumber.getRealDefaultValue());
+        setFechaDesde(UtilDate.getDefault());
+        setFechaHasta(UtilDate.getDefault());
         setEstado(new EstadoDTO());
     }
 

@@ -20,9 +20,9 @@ public class RevisionDTO {
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setVersion(new VersionDTO());
         setTipoRevision(new TipoRevisionDTO());
-        setFechaSolicitudRevision(UtilDate.getDefaultValue());
-        setFechaLimiteRevision(UtilDate.getDefaultValue());
-        setFechaCompletitudRevision(UtilDate.getDefaultValue());
+        setFechaSolicitudRevision(UtilDate.getDefault());
+        setFechaLimiteRevision(UtilDate.getDefault());
+        setFechaCompletitudRevision(UtilDate.getDefault());
         setEstado(new EstadoDTO());
     }
     public RevisionDTO(UUID identificador, VersionDTO version, TipoRevisionDTO tipoRevision, LocalDateTime fechaSolicitudRevision, LocalDateTime fechaLimiteRevision, LocalDateTime fechaCompletitudRevision, EstadoDTO estado) {

@@ -17,7 +17,7 @@ public class HistorialAccesoPublicacionDTO {
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setLector(new LectorDTO());
         setPublicacion(new PublicacionDTO());
-        setFechaAcceso(UtilDate.getDefaultValue());
+        setFechaAcceso(UtilDate.getDefault());
     }
 
     public HistorialAccesoPublicacionDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, LocalDateTime fechaAcceso) {

@@ -1,7 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
 import co.edu.uco.publiuco.crosscutting.utils.UtilDate;
-import co.edu.uco.publiuco.crosscutting.utils.UtilInt;
+import co.edu.uco.publiuco.crosscutting.utils.UtilNumber;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -24,7 +24,7 @@ public class VersionDTO {
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setPublicacion(new PublicacionDTO());
         setVersionAnterior(new VersionDTO());
-        setNumeroVersion(UtilInt.getDefaultValue());
+        setNumeroVersion(UtilNumber.getIntegerDefaultValue());
         setFechaCreacion(UtilDate.getDefaultValue());
         setUltimaFechaModificacion(UtilDate.getDefaultValue());
         setTitulo(UtilText.getDefaultValue());

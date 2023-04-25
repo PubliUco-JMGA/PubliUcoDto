@@ -35,15 +35,18 @@ public class LectorDTO {
         return estado;
     }
 
-    public void setIdentificador(UUID identificador) {
+    public LectorDTO setIdentificador(UUID identificador) {
         this.identificador = identificador;
+        return this;
     }
 
-    public void setDatosPersona(PersonaDTO datosPersona) {
+    public LectorDTO setDatosPersona(PersonaDTO datosPersona) {
         this.datosPersona = datosPersona;
+        return this;
     }
 
-    public void setEstado(EstadoDTO estado) {
+    public LectorDTO setEstado(EstadoDTO estado) {
         this.estado = estado;
+        return this;
     }
 }
