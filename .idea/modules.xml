@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PubliucoDTO.iml" filepath="$PROJECT_DIR$/PubliucoDTO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PubliucoBusisness/PubliucoBusisness.iml" filepath="$PROJECT_DIR$/../PubliucoBusisness/PubliucoBusisness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PubliucoCrossCutting/PubliucoCrossCutting.iml" filepath="$PROJECT_DIR$/../PubliucoCrossCutting/PubliucoCrossCutting.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PubliucoDTO1.iml" filepath="$PROJECT_DIR$/PubliucoDTO1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PubliucoData/PubliucoData.iml" filepath="$PROJECT_DIR$/../PubliucoData/PubliucoData.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../PubliucoEntities/PubliucoEntities.iml" filepath="$PROJECT_DIR$/../PubliucoEntities/PubliucoEntities.iml" />
     </modules>
   </component>
 </project>

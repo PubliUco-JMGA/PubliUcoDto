@@ -5,21 +5,23 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class RespuestaDTO {
+public class PaisDTO {
     private UUID identificador;
     private String nombre;
-    private String descripcion;
+    private String indicadorPais;
 
-    public RespuestaDTO() {
+    public PaisDTO() {
+        super();
         setIdentificador(UtilUUID.DEFAULT_UUID);
         setNombre(UtilText.getDefaultValue());
-        setDescripcion(UtilText.getDefaultValue());
+        setIndicadorPais(UtilText.getDefaultValue());
     }
 
-    public RespuestaDTO(UUID identificador, String nombre, String descripcion) {
+    public PaisDTO(UUID identificador, String nombre, String indicadorPais) {
+        super();
         setIdentificador(identificador);
         setNombre(nombre);
-        setDescripcion(descripcion);
+        setIndicadorPais(indicadorPais);
     }
 
     public UUID getIdentificador() {
@@ -30,22 +32,22 @@ public class RespuestaDTO {
         return nombre;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getIndicadorPais() {
+        return indicadorPais;
     }
 
-    public RespuestaDTO setIdentificador(UUID identificador) {
+    public PaisDTO setIdentificador(UUID identificador) {
         this.identificador = identificador;
         return this;
     }
 
-    public RespuestaDTO setNombre(String nombre) {
+    public PaisDTO setNombre(String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public RespuestaDTO setDescripcion(String descripcion) {
-        this.descripcion = UtilText.applyTrim(descripcion);
+    public PaisDTO setIndicadorPais(String indicadorPais) {
+        this.indicadorPais = UtilText.applyTrim(indicadorPais);
         return this;
     }
 }
