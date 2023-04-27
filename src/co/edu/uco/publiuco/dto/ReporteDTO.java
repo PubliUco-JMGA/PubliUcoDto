@@ -1,5 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilDate;
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -16,12 +18,12 @@ public class ReporteDTO {
     private LocalDateTime fechaReporte;
 
     public ReporteDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setLector(new LectorDTO());
-        setComentario(new ComentarioLectorDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setLector(LectorDTO.create());
+        setComentario(ComentarioLectorDTO.create());
         setRazon(UtilText.getDefaultValue());
-        setTipoReporte(new TipoReporteDTO());
-        setFechaReporte(LocalDateTime.now());
+        setTipoReporte(TipoReporteDTO.create());
+        setFechaReporte(UtilDate.getDefaultValue());
     }
 
     public ReporteDTO(UUID identificador, LectorDTO lector, ComentarioLectorDTO comentario, String razon, TipoReporteDTO tipoReporte, LocalDateTime fechaReporte) {
@@ -58,17 +60,17 @@ public class ReporteDTO {
     }
 
     public ReporteDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public ReporteDTO setLector(LectorDTO lector) {
-        this.lector = lector;
+        this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
     public ReporteDTO setComentario(ComentarioLectorDTO comentario) {
-        this.comentario = comentario;
+        this.comentario = UtilObject.getDefault(comentario, ComentarioLectorDTO.create());
         return this;
     }
 
@@ -78,12 +80,15 @@ public class ReporteDTO {
     }
 
     public ReporteDTO setTipoReporte(TipoReporteDTO tipoReporte) {
-        this.tipoReporte = tipoReporte;
+        this.tipoReporte = UtilObject.getDefault(tipoReporte, TipoReporteDTO.create());
         return this;
     }
 
     public ReporteDTO setFechaReporte(LocalDateTime fechaReporte) {
-        this.fechaReporte = fechaReporte;
+        this.fechaReporte = UtilDate.getDefault(fechaReporte);
         return this;
+    }
+    public static ReporteDTO create (){
+        return new ReporteDTO();
     }
 }

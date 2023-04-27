@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -12,10 +13,10 @@ public class PerfilDTO {
 
     public PerfilDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setLector(new LectorDTO());
-        setDeseaRecibirRecomendacionesDeCategoria(new RespuestaDTO());
-        setDeseaRecibirRecomendacionesDeAutor(new RespuestaDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setLector(LectorDTO.create());
+        setDeseaRecibirRecomendacionesDeCategoria(RespuestaDTO.create());
+        setDeseaRecibirRecomendacionesDeAutor(RespuestaDTO.create());
     }
 
     public PerfilDTO(UUID identificador, LectorDTO lector, RespuestaDTO deseaRecibirRecomendacionesDeCategoria, RespuestaDTO deseaRecibirRecomendacionesDeAutor) {
@@ -42,23 +43,26 @@ public class PerfilDTO {
         return deseaRecibirRecomendacionesDeAutor;
     }
 
-    public PerfilDTO setIdentificador(UUID identificaodr) {
-        this.identificador = identificador;
+    public PerfilDTO setIdentificador(UUID identificador) {
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public PerfilDTO setLector(LectorDTO lector) {
-        this.lector = lector;
+        this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
     public PerfilDTO setDeseaRecibirRecomendacionesDeCategoria(RespuestaDTO deseaRecibirRecomendacionesDeCategoria) {
-        this.deseaRecibirRecomendacionesDeCategoria = deseaRecibirRecomendacionesDeCategoria;
+        this.deseaRecibirRecomendacionesDeCategoria = UtilObject.getDefault(deseaRecibirRecomendacionesDeCategoria, RespuestaDTO.create());
         return this;
     }
 
     public PerfilDTO setDeseaRecibirRecomendacionesDeAutor(RespuestaDTO deseaRecibirRecomendacionesDeAutor) {
-        this.deseaRecibirRecomendacionesDeAutor = deseaRecibirRecomendacionesDeAutor;
+        this.deseaRecibirRecomendacionesDeAutor = UtilObject.getDefault(deseaRecibirRecomendacionesDeAutor, RespuestaDTO.create());
         return this;
+    }
+    public static PerfilDTO create (){
+        return new PerfilDTO();
     }
 }

@@ -12,10 +12,10 @@ public class TipoRelacionInstitucionDTO {
     private EstadoDTO estado;
 
     public TipoRelacionInstitucionDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
+        setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
-        setEstado(new EstadoDTO());
+        setEstado(EstadoDTO.create());
     }
     public TipoRelacionInstitucionDTO(UUID identificador, String nombre, String descripcion, EstadoDTO estado) {
         setIdentificador(identificador);
@@ -41,7 +41,7 @@ public class TipoRelacionInstitucionDTO {
     }
 
     public TipoRelacionInstitucionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
@@ -58,6 +58,9 @@ public class TipoRelacionInstitucionDTO {
     public TipoRelacionInstitucionDTO setEstado(EstadoDTO estado) {
         this.estado = estado;
         return this;
+    }
+    public static TipoRelacionInstitucionDTO create (){
+        return new TipoRelacionInstitucionDTO();
     }
 
 }

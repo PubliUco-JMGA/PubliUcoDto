@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -10,9 +11,9 @@ public class RevisorDTO {
     private EstadoDTO estado;
 
     public RevisorDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setDatosPersona(new PersonaDTO());
-        setEstado(new EstadoDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setDatosPersona(PersonaDTO.create());
+        setEstado(EstadoDTO.create());
     }
     public RevisorDTO(UUID identificador, PersonaDTO datosPersona, EstadoDTO estado) {
         setIdentificador(identificador);
@@ -33,17 +34,20 @@ public class RevisorDTO {
     }
 
     public RevisorDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public RevisorDTO setDatosPersona(PersonaDTO datosPersona) {
-        this.datosPersona = datosPersona;
+        this.datosPersona = UtilObject.getDefault(datosPersona, PersonaDTO.create());
         return this;
     }
 
     public RevisorDTO setEstado(EstadoDTO estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
+    }
+    public static RevisorDTO create (){
+        return new RevisorDTO();
     }
 }

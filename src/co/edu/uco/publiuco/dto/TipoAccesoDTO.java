@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -12,10 +13,10 @@ public class TipoAccesoDTO {
     private EstadoDTO estado;
 
     public TipoAccesoDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
+        setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
-        setEstado(new EstadoDTO());
+        setEstado(EstadoDTO.create());
     }
     public TipoAccesoDTO(UUID identificador, String nombre, String descripcion, EstadoDTO estado) {
         setIdentificador(identificador);
@@ -41,7 +42,7 @@ public class TipoAccesoDTO {
     }
 
     public TipoAccesoDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
@@ -56,8 +57,11 @@ public class TipoAccesoDTO {
     }
 
     public TipoAccesoDTO setEstado(EstadoDTO estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
+    }
+    public static TipoAccesoDTO create (){
+        return new TipoAccesoDTO();
     }
 
 }

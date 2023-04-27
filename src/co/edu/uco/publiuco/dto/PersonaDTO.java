@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -21,17 +22,17 @@ public class PersonaDTO {
 
     public PersonaDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setTipoIdentificacionDTO(new TipoIdentificacionDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setTipoIdentificacionDTO(TipoIdentificacionDTO.create());
         setNumeroIdentificacion(UtilText.getDefaultValue());
         setPrimerNombre(UtilText.getDefaultValue());
         setSegundoNombre(UtilText.getDefaultValue());
         setPrimerApellido(UtilText.getDefaultValue());
         setSegundoApellido(UtilText.getDefaultValue());
         setCorreoElectronico(UtilText.getDefaultValue());
-        setIndicadorPais(new PaisDTO());
+        setIndicadorPais(PaisDTO.create());
         setNumeroTelefonoMovil(UtilText.getDefaultValue());
-        setEstado(new EstadoDTO());
+        setEstado(EstadoDTO.create());
     }
 
     public PersonaDTO(UUID identificador, TipoIdentificacionDTO tipoIdentificacionDTO, String numeroIdentificacion, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String correoElectronico, PaisDTO indicadorPais, String numeroTelefonoMovil, EstadoDTO estado, TipoRelacionInstitucionDTO tipoRelacionInstitucion) {
@@ -99,12 +100,12 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public PersonaDTO setTipoIdentificacionDTO(TipoIdentificacionDTO tipoIdentificacionDTO) {
-        this.tipoIdentificacionDTO = tipoIdentificacionDTO;
+        this.tipoIdentificacionDTO = UtilObject.getDefault(tipoIdentificacionDTO, TipoIdentificacionDTO.create());
         return this;
     }
 
@@ -139,7 +140,7 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setIndicadorPais(PaisDTO indicadorPais) {
-        this.indicadorPais = indicadorPais;
+        this.indicadorPais = UtilObject.getDefault(indicadorPais, PaisDTO.create());
         return this;
     }
 
@@ -149,12 +150,15 @@ public class PersonaDTO {
     }
 
     public PersonaDTO setEstado(EstadoDTO estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }
 
     public PersonaDTO setTipoRelacionInstitucion(TipoRelacionInstitucionDTO tipoRelacionInstitucion) {
-        this.tipoRelacionInstitucion = tipoRelacionInstitucion;
+        this.tipoRelacionInstitucion = UtilObject.getDefault(tipoRelacionInstitucion, TipoRelacionInstitucionDTO.create());
         return this;
+    }
+    public static PersonaDTO create (){
+        return new PersonaDTO();
     }
 }

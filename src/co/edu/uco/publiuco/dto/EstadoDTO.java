@@ -1,6 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -16,9 +17,9 @@ public final class EstadoDTO {
 
     public EstadoDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
+        setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
-        setTipoEstado(new TipoEstadoDTO());
+        setTipoEstado(TipoEstadoDTO.create());
     }
 
 
@@ -41,7 +42,7 @@ public final class EstadoDTO {
 
     public final EstadoDTO setTipoEstado(final TipoEstadoDTO tipoEstado) {
 
-        this.tipoEstado = tipoEstado;
+        this.tipoEstado = UtilObject.getDefault(tipoEstado, TipoEstadoDTO.create());
         return this;
     }
 
@@ -57,10 +58,6 @@ public final class EstadoDTO {
         return tipoEstado;
     }
 
-    @Override
-    public String toString() {
-        return "EstadoTipoRelacionInstitucionDTO [identificador="+identificador+"], nombre = "+nombre;
-    }
     public static EstadoDTO create (){
         return new EstadoDTO();
     }

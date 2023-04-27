@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -10,9 +11,9 @@ public class SuscripcionCategoriaDTO {
     private PlanCategoriaDTO planCategoria;
 
     public SuscripcionCategoriaDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPerfil(new PerfilDTO());
-        setPlanCategoria(new PlanCategoriaDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPerfil(PerfilDTO.create());
+        setPlanCategoria(PlanCategoriaDTO.create());
     }
 
     public SuscripcionCategoriaDTO(UUID identificador, PerfilDTO perfil, PlanCategoriaDTO planCategoria) {
@@ -34,17 +35,20 @@ public class SuscripcionCategoriaDTO {
     }
 
     public SuscripcionCategoriaDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public SuscripcionCategoriaDTO setPerfil(PerfilDTO perfil) {
-        this.perfil = perfil;
+        this.perfil = UtilObject.getDefault(perfil, PerfilDTO.create());
         return this;
     }
 
     public SuscripcionCategoriaDTO setPlanCategoria(PlanCategoriaDTO planCategoria) {
-        this.planCategoria = planCategoria;
+        this.planCategoria = UtilObject.getDefault(planCategoria, PlanCategoriaDTO.create());
         return this;
+    }
+    public static SuscripcionCategoriaDTO create (){
+        return new SuscripcionCategoriaDTO();
     }
 }

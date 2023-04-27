@@ -1,5 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilDate;
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.time.LocalDateTime;
@@ -14,9 +16,9 @@ public class RevisorRevisionDTO {
     private EstadoDTO estado;
 
     public RevisorRevisionDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setRevision(new RevisionDTO());
-        setRevisor(new RevisorDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setRevision(RevisionDTO.create());
+        setRevisor(RevisorDTO.create());
     }
     public RevisorRevisionDTO(UUID identificador, RevisionDTO revision, RevisorDTO revisor, LocalDateTime fechaAsignacionRevision, LocalDateTime fechaCompletitudRevision, EstadoDTO estado) {
         setIdentificador(identificador);
@@ -52,32 +54,35 @@ public class RevisorRevisionDTO {
     }
 
     public RevisorRevisionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public RevisorRevisionDTO setRevision(RevisionDTO revision) {
-        this.revision = revision;
+        this.revision = UtilObject.getDefault(revision, RevisionDTO.create());
         return this;
     }
 
     public RevisorRevisionDTO setRevisor(RevisorDTO revisor) {
-        this.revisor = revisor;
+        this.revisor = UtilObject.getDefault(revisor, RevisorDTO.create());
         return this;
     }
 
     public RevisorRevisionDTO setFechaAsignacionRevision(LocalDateTime fechaAsignacionRevision) {
-        this.fechaAsignacionRevision = fechaAsignacionRevision;
+        this.fechaAsignacionRevision = UtilDate.getDefault(fechaAsignacionRevision);
         return this;
     }
 
     public RevisorRevisionDTO setFechaCompletitudRevision(LocalDateTime fechaCompletitudRevision) {
-        this.fechaCompletitudRevision = fechaCompletitudRevision;
+        this.fechaCompletitudRevision = UtilDate.getDefault(fechaCompletitudRevision);
         return this;
     }
 
     public RevisorRevisionDTO setEstado(EstadoDTO estado) {
-        this.estado = estado;
+        this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
+    }
+    public static RevisorRevisionDTO create (){
+        return new RevisorRevisionDTO();
     }
 }

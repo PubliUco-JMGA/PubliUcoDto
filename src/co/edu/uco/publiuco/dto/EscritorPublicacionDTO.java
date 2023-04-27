@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -12,10 +13,10 @@ public class EscritorPublicacionDTO {
 
     public EscritorPublicacionDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPublicacion(new PublicacionDTO());
-        setEscritor(new EscritorDTO());
-        setTipoEscritor(new TipoEscritorDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPublicacion(PublicacionDTO.create());
+        setEscritor(EscritorDTO.create());
+        setTipoEscritor(TipoEscritorDTO.create());
     }
 
     public EscritorPublicacionDTO(UUID identificador, PublicacionDTO publicacion, EscritorDTO escritor, TipoEscritorDTO tipoEscritor) {
@@ -43,22 +44,25 @@ public class EscritorPublicacionDTO {
     }
 
     public EscritorPublicacionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public EscritorPublicacionDTO setPublicacion(PublicacionDTO publicacion) {
-        this.publicacion = publicacion;
+        this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
     public EscritorPublicacionDTO setEscritor(EscritorDTO escritor) {
-        this.escritor = escritor;
+        this.escritor = UtilObject.getDefault(escritor, EscritorDTO.create());
         return this;
     }
 
     public EscritorPublicacionDTO setTipoEscritor(TipoEscritorDTO tipoEscritor) {
-        this.tipoEscritor = tipoEscritor;
+        this.tipoEscritor = UtilObject.getDefault(tipoEscritor, TipoEscritorDTO.create());
         return this;
+    }
+    public static EscritorPublicacionDTO create (){
+        return new EscritorPublicacionDTO();
     }
 }

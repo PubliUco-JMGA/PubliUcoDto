@@ -9,19 +9,16 @@ public class TipoIdentificacionDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
-    private EstadoDTO estado;
 
     public TipoIdentificacionDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
+        setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
-        setEstado(new EstadoDTO());
     }
     public TipoIdentificacionDTO(UUID identificador, String nombre, String descripcion, EstadoDTO estado) {
         setIdentificador(identificador);
         setNombre(nombre);
         setDescripcion(descripcion);
-        setEstado(estado);
     }
 
     public UUID getIdentificador() {
@@ -36,12 +33,9 @@ public class TipoIdentificacionDTO {
         return descripcion;
     }
 
-    public EstadoDTO getEstado() {
-        return estado;
-    }
 
     public TipoIdentificacionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
@@ -55,11 +49,9 @@ public class TipoIdentificacionDTO {
         return this;
     }
 
-    public TipoIdentificacionDTO setEstado(EstadoDTO estado) {
-        this.estado = estado;
-        return this;
+    public static TipoIdentificacionDTO create (){
+        return new TipoIdentificacionDTO();
     }
-
 }
 
 

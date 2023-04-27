@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -11,9 +12,9 @@ public class PreferenciaCategoriaDTO {
 
     public PreferenciaCategoriaDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPerfil(new PerfilDTO());
-        setCategoria(new CategoriaDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPerfil(PerfilDTO.create());
+        setCategoria(CategoriaDTO.create());
     }
 
     public PreferenciaCategoriaDTO(UUID identificador, PerfilDTO perfil, CategoriaDTO categoria) {
@@ -36,17 +37,20 @@ public class PreferenciaCategoriaDTO {
     }
 
     public PreferenciaCategoriaDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public PreferenciaCategoriaDTO setPerfil(PerfilDTO perfil) {
-        this.perfil = perfil;
+        this.perfil = UtilObject.getDefault(perfil, PerfilDTO.create());
         return this;
     }
 
     public PreferenciaCategoriaDTO setCategoria(CategoriaDTO categoria) {
-        this.categoria = categoria;
+        this.categoria = UtilObject.getDefault(categoria, CategoriaDTO.create());
         return this;
+    }
+    public static PreferenciaCategoriaDTO create (){
+        return new PreferenciaCategoriaDTO();
     }
 }

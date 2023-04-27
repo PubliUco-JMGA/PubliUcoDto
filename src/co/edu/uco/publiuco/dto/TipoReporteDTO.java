@@ -11,7 +11,7 @@ public class TipoReporteDTO {
     private String descripcion;
 
     public TipoReporteDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
+        setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
     }
@@ -35,7 +35,7 @@ public class TipoReporteDTO {
 
 
     public TipoReporteDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
@@ -48,7 +48,9 @@ public class TipoReporteDTO {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }
-
+    public static TipoReporteDTO create (){
+        return new TipoReporteDTO();
+    }
 
 
 }

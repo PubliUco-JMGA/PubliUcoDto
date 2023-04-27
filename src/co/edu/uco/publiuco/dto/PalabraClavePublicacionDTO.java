@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -12,8 +13,8 @@ public class PalabraClavePublicacionDTO {
 
     public PalabraClavePublicacionDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPublicacion(new PublicacionDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPublicacion(PublicacionDTO.create());
         setPalabraClave(UtilText.getDefaultValue());
     }
 
@@ -37,17 +38,20 @@ public class PalabraClavePublicacionDTO {
     }
 
     public PalabraClavePublicacionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public PalabraClavePublicacionDTO setPublicacion(PublicacionDTO publicacion) {
-        this.publicacion = publicacion;
+        this.publicacion = UtilObject.getDefault(publicacion,PublicacionDTO.create());
         return this;
     }
 
     public PalabraClavePublicacionDTO setPalabraClave(String palabraClave) {
         this.palabraClave = UtilText.applyTrim(palabraClave);
         return this;
+    }
+    public static PalabraClavePublicacionDTO create (){
+        return new PalabraClavePublicacionDTO();
     }
 }

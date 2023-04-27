@@ -1,6 +1,7 @@
 package co.edu.uco.publiuco.dto;
 
 import co.edu.uco.publiuco.crosscutting.utils.UtilDate;
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilText;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
@@ -16,9 +17,9 @@ public class CalificacionDTO {
 
     public CalificacionDTO() {
         super();
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPublicacion(new PublicacionDTO());
-        setLector(new LectorDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPublicacion(PublicacionDTO.create());
+        setLector(LectorDTO.create());
         setFechaCalificacion(UtilDate.getDefaultValue());
         setCalificacion(UtilText.getDefaultValue());
     }
@@ -53,27 +54,30 @@ public class CalificacionDTO {
     }
 
     public CalificacionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public CalificacionDTO setPublicacion(PublicacionDTO publicacion) {
-        this.publicacion = publicacion;
+        this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
     public CalificacionDTO setLector(LectorDTO lector) {
-        this.lector = lector;
+        this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
     public CalificacionDTO setFechaCalificacion(LocalDateTime fechaCalificacion) {
-        this.fechaCalificacion = fechaCalificacion;
+        this.fechaCalificacion = UtilDate.getDefault(fechaCalificacion);
         return this;
     }
 
     public CalificacionDTO setCalificacion(String calificacion) {
         this.calificacion = UtilText.applyTrim(calificacion);
         return this;
+    }
+    public static CalificacionDTO create (){
+        return new CalificacionDTO();
     }
 }

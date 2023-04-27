@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.crosscutting.utils.UtilObject;
 import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
@@ -10,9 +11,9 @@ public class SuscripcionPublicacionDTO {
     private PlanPublicacionDTO planPublicacion;
 
     public SuscripcionPublicacionDTO() {
-        setIdentificador(UtilUUID.DEFAULT_UUID);
-        setPerfil(new PerfilDTO());
-        setPlanPublicacion(new PlanPublicacionDTO());
+        setIdentificador(UtilUUID.getDefaultValue());
+        setPerfil(PerfilDTO.create());
+        setPlanPublicacion(PlanPublicacionDTO.create());
     }
     public SuscripcionPublicacionDTO(UUID identificador, PerfilDTO perfil, PlanPublicacionDTO planPublicacion) {
         setIdentificador(identificador);
@@ -33,17 +34,20 @@ public class SuscripcionPublicacionDTO {
     }
 
     public SuscripcionPublicacionDTO setIdentificador(UUID identificador) {
-        this.identificador = identificador;
+        this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
     public SuscripcionPublicacionDTO setPerfil(PerfilDTO perfil) {
-        this.perfil = perfil;
+        this.perfil = UtilObject.getDefault(perfil, PerfilDTO.create());
         return this;
     }
 
     public SuscripcionPublicacionDTO setPlanPublicacion(PlanPublicacionDTO planPublicacion) {
-        this.planPublicacion = planPublicacion;
+        this.planPublicacion = UtilObject.getDefault(planPublicacion, PlanPublicacionDTO.create());
         return this;
+    }
+    public static SuscripcionPublicacionDTO create (){
+        return new SuscripcionPublicacionDTO();
     }
 }
