@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class VersionDTO {
+public final class VersionDTO {
     private UUID identificador;
     private PublicacionDTO publicacion;
     private VersionDTO versionAnterior;
@@ -90,52 +90,52 @@ public class VersionDTO {
         return estado;
     }
 
-    public VersionDTO setIdentificador(UUID identificador) {
+    public VersionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public VersionDTO setPublicacion(PublicacionDTO publicacion) {
+    public VersionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
-    public VersionDTO setVersionAnterior(VersionDTO versionAnterior) {
+    public VersionDTO setVersionAnterior(final VersionDTO versionAnterior) {
         this.versionAnterior = UtilObject.getDefault(versionAnterior, VersionDTO.create());
         return this;
     }
 
-    public VersionDTO setNumeroVersion(Integer numeroVersion) {
+    public VersionDTO setNumeroVersion(final Integer numeroVersion) {
         this.numeroVersion = UtilNumber.getDefaultInt(numeroVersion);
         return this;
     }
 
-    public VersionDTO setFechaCreacion(LocalDateTime fechaCreacion) {
+    public VersionDTO setFechaCreacion(final LocalDateTime fechaCreacion) {
         this.fechaCreacion = UtilDate.getDefault(fechaCreacion);
         return this;
     }
 
-    public VersionDTO setUltimaFechaModificacion(LocalDateTime ultimaFechaModificacion) {
+    public VersionDTO setUltimaFechaModificacion(final LocalDateTime ultimaFechaModificacion) {
         this.ultimaFechaModificacion = UtilDate.getDefault(ultimaFechaModificacion);
         return this;
     }
 
-    public VersionDTO setTitulo(String titulo) {
+    public VersionDTO setTitulo(final String titulo) {
         this.titulo = UtilText.applyTrim(titulo);
         return this;
     }
 
-    public VersionDTO setResumen(String resumen) {
+    public VersionDTO setResumen(final String resumen) {
         this.resumen = UtilText.applyTrim(resumen);
         return this;
     }
 
-    public VersionDTO setCuerpo(String cuerpo) {
+    public VersionDTO setCuerpo(final String cuerpo) {
         this.cuerpo = UtilText.applyTrim(cuerpo);
         return this;
     }
 
-    public VersionDTO setEstado(EstadoDTO estado) {
+    public VersionDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

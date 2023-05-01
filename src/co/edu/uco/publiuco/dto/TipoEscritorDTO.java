@@ -6,7 +6,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class TipoEscritorDTO {
+public final class TipoEscritorDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
@@ -41,22 +41,22 @@ public class TipoEscritorDTO {
         return estado;
     }
 
-    public TipoEscritorDTO setIdentificador(UUID identificador) {
+    public TipoEscritorDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public TipoEscritorDTO setNombre(String nombre) {
+    public TipoEscritorDTO setNombre(final String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public TipoEscritorDTO setDescripcion(String descripcion) {
+    public TipoEscritorDTO setDescripcion(final String descripcion) {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }
 
-    public TipoEscritorDTO setEstado(EstadoDTO estado) {
+    public TipoEscritorDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

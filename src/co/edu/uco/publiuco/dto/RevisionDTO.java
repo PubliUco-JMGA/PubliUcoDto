@@ -7,7 +7,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class RevisionDTO {
+public final class RevisionDTO {
     private UUID identificador;
     private VersionDTO version;
     private TipoRevisionDTO tipoRevision;
@@ -63,37 +63,37 @@ public class RevisionDTO {
         return estado;
     }
 
-    public RevisionDTO setIdentificador(UUID identificador) {
+    public RevisionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public RevisionDTO setVersion(VersionDTO version) {
+    public RevisionDTO setVersion(final VersionDTO version) {
         this.version = UtilObject.getDefault(version, VersionDTO.create());
         return this;
     }
 
-    public RevisionDTO setTipoRevision(TipoRevisionDTO tipoRevision) {
+    public RevisionDTO setTipoRevision(final TipoRevisionDTO tipoRevision) {
         this.tipoRevision = UtilObject.getDefault(tipoRevision, TipoRevisionDTO.create());
         return this;
     }
 
-    public RevisionDTO setFechaSolicitudRevision(LocalDateTime fechaSolicitudRevision) {
+    public RevisionDTO setFechaSolicitudRevision(final LocalDateTime fechaSolicitudRevision) {
         this.fechaSolicitudRevision = UtilDate.getDefault(fechaSolicitudRevision);
         return this;
     }
 
-    public RevisionDTO setFechaLimiteRevision(LocalDateTime fechaLimiteRevision) {
+    public RevisionDTO setFechaLimiteRevision(final LocalDateTime fechaLimiteRevision) {
         this.fechaLimiteRevision = UtilDate.getDefault(fechaLimiteRevision);
         return this;
     }
 
-    public RevisionDTO setFechaCompletitudRevision(LocalDateTime fechaCompletitudRevision) {
+    public RevisionDTO setFechaCompletitudRevision(final LocalDateTime fechaCompletitudRevision) {
         this.fechaCompletitudRevision = UtilDate.getDefault(fechaCompletitudRevision);
         return this;
     }
 
-    public RevisionDTO setEstado(EstadoDTO estado) {
+    public RevisionDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

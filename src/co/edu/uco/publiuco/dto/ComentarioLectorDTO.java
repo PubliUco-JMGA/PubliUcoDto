@@ -25,16 +25,13 @@ public final class ComentarioLectorDTO {
 		setIdentificador(UtilUUID.getDefaultValue());
 		setLector(LectorDTO.create());
 		setPublicacion(PublicacionDTO.create());
-		setComentarioPadre(getDefaultValue());
+		setComentarioPadre(ComentarioLectorDTO.create());
 		setCotenido(UtilText.getDefaultValue());
 		setFechaCalificacion(UtilDate.getDefaultValue());
 		setEstado(EstadoDTO.create() );
 	}
 
 
-	public static void main(String[] args) {
-		ComentarioLectorDTO comentarioLectorDTO = ComentarioLectorDTO.create();
-	}
 
 	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaCalificacion, EstadoDTO estado) {
 		super();
@@ -47,9 +44,6 @@ public final class ComentarioLectorDTO {
 		setEstado(estado);
 	}
 
-	public static ComentarioLectorDTO getDefaultValue() {
-		return INSTANCE_DEFAULT;
-	}
 
 	public UUID getIdentificador() {
 		return identificador;
@@ -79,37 +73,37 @@ public final class ComentarioLectorDTO {
 		return estado;
 	}
 
-	public ComentarioLectorDTO setIdentificador(UUID identificador) {
+	public ComentarioLectorDTO setIdentificador(final UUID identificador) {
 		this.identificador = UtilUUID.getDefault(identificador);
 		return this;
 	}
 
-	public ComentarioLectorDTO setLector(LectorDTO lector) {
+	public ComentarioLectorDTO setLector(final LectorDTO lector) {
 		this.lector = UtilObject.getDefault(lector, LectorDTO.create());
 		return this;
 	}
 
-	public ComentarioLectorDTO setPublicacion(PublicacionDTO publicacion) {
+	public ComentarioLectorDTO setPublicacion(final PublicacionDTO publicacion) {
 		this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
 		return this;
 	}
 
-	public ComentarioLectorDTO setComentarioPadre(ComentarioLectorDTO comentarioPadre) {
+	public ComentarioLectorDTO setComentarioPadre(final ComentarioLectorDTO comentarioPadre) {
 		this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioLectorDTO.create());
 		return this;
 	}
 
-	public ComentarioLectorDTO setEstado(EstadoDTO estado) {
+	public ComentarioLectorDTO setEstado(final EstadoDTO estado) {
 		this.estado = estado;
 		return this;
 	}
 
-	public ComentarioLectorDTO setCotenido(String cotenido) {
+	public ComentarioLectorDTO setCotenido(final String cotenido) {
 		this.cotenido = cotenido;
 		return this;
 	}
 
-	public ComentarioLectorDTO setFechaCalificacion(LocalDateTime fechaCalificacion) {
+	public ComentarioLectorDTO setFechaCalificacion(final LocalDateTime fechaCalificacion) {
 		this.fechaCalificacion = fechaCalificacion;
 		return this;
 	}

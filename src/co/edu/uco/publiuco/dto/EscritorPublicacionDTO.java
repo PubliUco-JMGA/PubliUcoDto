@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class EscritorPublicacionDTO {
+public final class EscritorPublicacionDTO {
     private UUID identificador;
     private PublicacionDTO publicacion;
     private EscritorDTO escritor;
@@ -43,22 +43,22 @@ public class EscritorPublicacionDTO {
         return tipoEscritor;
     }
 
-    public EscritorPublicacionDTO setIdentificador(UUID identificador) {
+    public EscritorPublicacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public EscritorPublicacionDTO setPublicacion(PublicacionDTO publicacion) {
+    public EscritorPublicacionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
-    public EscritorPublicacionDTO setEscritor(EscritorDTO escritor) {
+    public EscritorPublicacionDTO setEscritor(final EscritorDTO escritor) {
         this.escritor = UtilObject.getDefault(escritor, EscritorDTO.create());
         return this;
     }
 
-    public EscritorPublicacionDTO setTipoEscritor(TipoEscritorDTO tipoEscritor) {
+    public EscritorPublicacionDTO setTipoEscritor(final TipoEscritorDTO tipoEscritor) {
         this.tipoEscritor = UtilObject.getDefault(tipoEscritor, TipoEscritorDTO.create());
         return this;
     }

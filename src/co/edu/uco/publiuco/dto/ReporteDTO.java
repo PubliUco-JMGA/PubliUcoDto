@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.UUID;
 
-public class ReporteDTO {
+public final class ReporteDTO {
     private UUID identificador;
     private LectorDTO lector;
     private ComentarioLectorDTO comentario;
@@ -59,32 +59,32 @@ public class ReporteDTO {
         return fechaReporte;
     }
 
-    public ReporteDTO setIdentificador(UUID identificador) {
+    public ReporteDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public ReporteDTO setLector(LectorDTO lector) {
+    public ReporteDTO setLector(final LectorDTO lector) {
         this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
-    public ReporteDTO setComentario(ComentarioLectorDTO comentario) {
+    public ReporteDTO setComentario(final ComentarioLectorDTO comentario) {
         this.comentario = UtilObject.getDefault(comentario, ComentarioLectorDTO.create());
         return this;
     }
 
-    public ReporteDTO setRazon(String razon) {
+    public ReporteDTO setRazon(final String razon) {
         this.razon = UtilText.applyTrim(razon);
         return this;
     }
 
-    public ReporteDTO setTipoReporte(TipoReporteDTO tipoReporte) {
+    public ReporteDTO setTipoReporte(final TipoReporteDTO tipoReporte) {
         this.tipoReporte = UtilObject.getDefault(tipoReporte, TipoReporteDTO.create());
         return this;
     }
 
-    public ReporteDTO setFechaReporte(LocalDateTime fechaReporte) {
+    public ReporteDTO setFechaReporte(final LocalDateTime fechaReporte) {
         this.fechaReporte = UtilDate.getDefault(fechaReporte);
         return this;
     }

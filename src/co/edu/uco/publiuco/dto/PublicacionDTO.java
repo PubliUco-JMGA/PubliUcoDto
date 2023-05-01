@@ -7,7 +7,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class PublicacionDTO {
+public final class PublicacionDTO {
     private UUID identificador;
     private CategoriaDTO categoria;
     private TipoAccesoDTO tipoAcceso;
@@ -57,32 +57,32 @@ public class PublicacionDTO {
         return estado;
     }
 
-    public PublicacionDTO setIdentificador(UUID identificador) {
+    public PublicacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public PublicacionDTO setCategoria(CategoriaDTO categoria) {
+    public PublicacionDTO setCategoria(final CategoriaDTO categoria) {
         this.categoria = UtilObject.getDefault(categoria, CategoriaDTO.create());
         return this;
     }
 
-    public PublicacionDTO setTipoAcceso(TipoAccesoDTO tipoAcceso) {
+    public PublicacionDTO setTipoAcceso(final TipoAccesoDTO tipoAcceso) {
         this.tipoAcceso = UtilObject.getDefault(tipoAcceso, TipoAccesoDTO.create());
         return this;
     }
 
-    public PublicacionDTO setFechaPublicacion(LocalDateTime fechaPublicacion) {
+    public PublicacionDTO setFechaPublicacion(final LocalDateTime fechaPublicacion) {
         this.fechaPublicacion = UtilDate.getDefault(fechaPublicacion);
         return this;
     }
 
-    public PublicacionDTO setVersionPublicada(VersionDTO versionPublicada) {
+    public PublicacionDTO setVersionPublicada(final VersionDTO versionPublicada) {
         this.versionPublicada = UtilObject.getDefault(versionPublicada, VersionDTO.create());
         return this;
     }
 
-    public PublicacionDTO setEstado(EstadoDTO estado) {
+    public PublicacionDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

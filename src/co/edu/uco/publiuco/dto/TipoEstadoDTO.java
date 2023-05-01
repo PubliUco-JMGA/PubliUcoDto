@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class TipoEstadoDTO {
+public final class TipoEstadoDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
@@ -34,17 +34,17 @@ public class TipoEstadoDTO {
     }
 
 
-    public TipoEstadoDTO setIdentificador(UUID identificador) {
+    public TipoEstadoDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public TipoEstadoDTO setNombre(String nombre) {
+    public TipoEstadoDTO setNombre(final String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public TipoEstadoDTO setDescripcion(String descripcion) {
+    public TipoEstadoDTO setDescripcion(final String descripcion) {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }

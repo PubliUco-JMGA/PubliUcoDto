@@ -6,7 +6,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class PalabraClavePublicacionDTO {
+public final class PalabraClavePublicacionDTO {
     private UUID identificador;
     private PublicacionDTO publicacion;
     private String palabraClave;
@@ -37,17 +37,17 @@ public class PalabraClavePublicacionDTO {
         return palabraClave;
     }
 
-    public PalabraClavePublicacionDTO setIdentificador(UUID identificador) {
+    public PalabraClavePublicacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public PalabraClavePublicacionDTO setPublicacion(PublicacionDTO publicacion) {
+    public PalabraClavePublicacionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion,PublicacionDTO.create());
         return this;
     }
 
-    public PalabraClavePublicacionDTO setPalabraClave(String palabraClave) {
+    public PalabraClavePublicacionDTO setPalabraClave(final String palabraClave) {
         this.palabraClave = UtilText.applyTrim(palabraClave);
         return this;
     }

@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class PreferenciaEscritorDTO {
+public final class PreferenciaEscritorDTO {
     private UUID identificador;
     private PerfilDTO perfil;
     private EscritorDTO escritor;
@@ -33,17 +33,17 @@ public class PreferenciaEscritorDTO {
         return escritor;
     }
 
-    public PreferenciaEscritorDTO setIdentificador(UUID identificador) {
+    public PreferenciaEscritorDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public PreferenciaEscritorDTO setPerfil(PerfilDTO perfil) {
+    public PreferenciaEscritorDTO setPerfil(final PerfilDTO perfil) {
         this.perfil = UtilObject.getDefault(perfil, PerfilDTO.create());
         return this;
     }
 
-    public PreferenciaEscritorDTO setEscritor(EscritorDTO escritor) {
+    public PreferenciaEscritorDTO setEscritor(final EscritorDTO escritor) {
         this.escritor = UtilObject.getDefault(escritor, EscritorDTO.create());
         return this;
     }

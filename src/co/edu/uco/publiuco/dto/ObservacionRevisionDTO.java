@@ -8,7 +8,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class ObservacionRevisionDTO {
+public final class ObservacionRevisionDTO {
     private UUID identificador;
     private EscritorPublicacionDTO escritorPublicacion;
     private ComentarioRevisorDTO comentarioRevisor;
@@ -67,37 +67,37 @@ public class ObservacionRevisionDTO {
         return estado;
     }
 
-    public ObservacionRevisionDTO setIdentificador(UUID identificador) {
+    public ObservacionRevisionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public ObservacionRevisionDTO setEscritorPublicacion(EscritorPublicacionDTO escritorPublicacion) {
+    public ObservacionRevisionDTO setEscritorPublicacion(final EscritorPublicacionDTO escritorPublicacion) {
         this.escritorPublicacion = UtilObject.getDefault(escritorPublicacion, EscritorPublicacionDTO.create());
         return this;
     }
 
-    public ObservacionRevisionDTO setComentarioRevisor(ComentarioRevisorDTO comentarioRevisor) {
+    public ObservacionRevisionDTO setComentarioRevisor(final ComentarioRevisorDTO comentarioRevisor) {
         this.comentarioRevisor = UtilObject.getDefault(comentarioRevisor, ComentarioRevisorDTO.create());
         return this;
     }
 
-    public ObservacionRevisionDTO setFechaReportePublicacion(LocalDateTime fechaReportePublicacion) {
+    public ObservacionRevisionDTO setFechaReportePublicacion(final LocalDateTime fechaReportePublicacion) {
         this.fechaReportePublicacion = UtilDate.getDefault(fechaReportePublicacion);
         return this;
     }
 
-    public ObservacionRevisionDTO setFechaRevisionObservacion(LocalDateTime fechaRevisionObservacion) {
+    public ObservacionRevisionDTO setFechaRevisionObservacion(final LocalDateTime fechaRevisionObservacion) {
         this.fechaRevisionObservacion = UtilDate.getDefault(fechaRevisionObservacion);
         return this;
     }
 
-    public ObservacionRevisionDTO setObservacion(String observacion) {
+    public ObservacionRevisionDTO setObservacion(final String observacion) {
         this.observacion = UtilText.applyTrim(observacion);
         return this;
     }
 
-    public ObservacionRevisionDTO setEstado(EstadoDTO estado) {
+    public ObservacionRevisionDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

@@ -7,7 +7,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class HistorialAccesoPublicacionDTO {
+public final class HistorialAccesoPublicacionDTO {
     private UUID identificador;
     private LectorDTO lector;
     private PublicacionDTO publicacion;
@@ -45,22 +45,22 @@ public class HistorialAccesoPublicacionDTO {
         return fechaAcceso;
     }
 
-    public HistorialAccesoPublicacionDTO setIdentificador(UUID identificador) {
+    public HistorialAccesoPublicacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public HistorialAccesoPublicacionDTO setLector(LectorDTO lector) {
+    public HistorialAccesoPublicacionDTO setLector(final LectorDTO lector) {
         this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
-    public HistorialAccesoPublicacionDTO setPublicacion(PublicacionDTO publicacion) {
+    public HistorialAccesoPublicacionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
-    public HistorialAccesoPublicacionDTO setFechaAcceso(LocalDateTime fechaAcceso) {
+    public HistorialAccesoPublicacionDTO setFechaAcceso(final LocalDateTime fechaAcceso) {
         this.fechaAcceso = UtilDate.getDefault(fechaAcceso);
         return this;
     }

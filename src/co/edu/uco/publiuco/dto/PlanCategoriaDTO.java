@@ -8,7 +8,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
-public class PlanCategoriaDTO {
+public final class PlanCategoriaDTO {
     private UUID identificador;
     private CategoriaDTO categoria;
     private Double precio;
@@ -60,32 +60,32 @@ public class PlanCategoriaDTO {
         return estado;
     }
 
-    public PlanCategoriaDTO setIdentificador(UUID identificador) {
+    public PlanCategoriaDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public PlanCategoriaDTO setCategoria(CategoriaDTO categoria) {
+    public PlanCategoriaDTO setCategoria(final CategoriaDTO categoria) {
         this.categoria = UtilObject.getDefault(categoria, CategoriaDTO.create());
         return this;
     }
 
-    public PlanCategoriaDTO setPrecio(Double precio) {
+    public PlanCategoriaDTO setPrecio(final Double precio) {
         this.precio = UtilNumber.getDefaultReal(precio);
         return this;
     }
 
-    public PlanCategoriaDTO setFechaDesde(LocalDateTime fechaDesde) {
+    public PlanCategoriaDTO setFechaDesde(final LocalDateTime fechaDesde) {
         this.fechaDesde = UtilDate.getDefault(fechaDesde);
         return this;
     }
 
-    public PlanCategoriaDTO setFechaHasta(LocalDateTime fechaHasta) {
+    public PlanCategoriaDTO setFechaHasta(final LocalDateTime fechaHasta) {
         this.fechaHasta = UtilDate.getDefault(fechaHasta);
         return this;
     }
 
-    public PlanCategoriaDTO setEstado(EstadoDTO estado) {
+    public PlanCategoriaDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

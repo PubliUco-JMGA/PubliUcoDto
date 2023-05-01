@@ -6,7 +6,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class ComentarioRevisorDTO {
+public final class ComentarioRevisorDTO {
     private UUID identificador;
     private RevisorRevisionDTO revisorRevision;
     private TipoComentarioRevisorDTO tipoComentarioRevisor;
@@ -45,22 +45,22 @@ public class ComentarioRevisorDTO {
         return comentario;
     }
 
-    public ComentarioRevisorDTO setIdentificador(UUID identificador) {
+    public ComentarioRevisorDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public ComentarioRevisorDTO setRevisorRevision(RevisorRevisionDTO revisorRevision) {
+    public ComentarioRevisorDTO setRevisorRevision(final RevisorRevisionDTO revisorRevision) {
         this.revisorRevision = UtilObject.getDefault(revisorRevision, RevisorRevisionDTO.create());
         return this;
     }
 
-    public ComentarioRevisorDTO setTipoComentarioRevisor(TipoComentarioRevisorDTO tipoComentarioRevisor) {
+    public ComentarioRevisorDTO setTipoComentarioRevisor(final TipoComentarioRevisorDTO tipoComentarioRevisor) {
         this.tipoComentarioRevisor = UtilObject.getDefault(tipoComentarioRevisor, TipoComentarioRevisorDTO.create());
         return this;
     }
 
-    public ComentarioRevisorDTO setComentario(String comentario) {
+    public ComentarioRevisorDTO setComentario(final String comentario) {
         this.comentario = UtilText.applyTrim(comentario);
         return this;
     }

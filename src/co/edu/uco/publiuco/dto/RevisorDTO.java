@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class RevisorDTO {
+public final class RevisorDTO {
     private UUID identificador;
     private PersonaDTO datosPersona;
     private EstadoDTO estado;
@@ -33,17 +33,17 @@ public class RevisorDTO {
         return estado;
     }
 
-    public RevisorDTO setIdentificador(UUID identificador) {
+    public RevisorDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public RevisorDTO setDatosPersona(PersonaDTO datosPersona) {
+    public RevisorDTO setDatosPersona(final PersonaDTO datosPersona) {
         this.datosPersona = UtilObject.getDefault(datosPersona, PersonaDTO.create());
         return this;
     }
 
-    public RevisorDTO setEstado(EstadoDTO estado) {
+    public RevisorDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

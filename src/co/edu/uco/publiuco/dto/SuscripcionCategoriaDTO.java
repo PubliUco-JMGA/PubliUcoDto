@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class SuscripcionCategoriaDTO {
+public final class SuscripcionCategoriaDTO {
     private UUID identificador;
     private PerfilDTO perfil;
     private PlanCategoriaDTO planCategoria;
@@ -34,17 +34,17 @@ public class SuscripcionCategoriaDTO {
         return planCategoria;
     }
 
-    public SuscripcionCategoriaDTO setIdentificador(UUID identificador) {
+    public SuscripcionCategoriaDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public SuscripcionCategoriaDTO setPerfil(PerfilDTO perfil) {
+    public SuscripcionCategoriaDTO setPerfil(final PerfilDTO perfil) {
         this.perfil = UtilObject.getDefault(perfil, PerfilDTO.create());
         return this;
     }
 
-    public SuscripcionCategoriaDTO setPlanCategoria(PlanCategoriaDTO planCategoria) {
+    public SuscripcionCategoriaDTO setPlanCategoria(final PlanCategoriaDTO planCategoria) {
         this.planCategoria = UtilObject.getDefault(planCategoria, PlanCategoriaDTO.create());
         return this;
     }

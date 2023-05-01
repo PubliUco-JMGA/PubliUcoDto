@@ -8,7 +8,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class CalificacionDTO {
+public final class CalificacionDTO {
     private UUID identificador;
     private PublicacionDTO publicacion;
     private LectorDTO lector;
@@ -53,27 +53,27 @@ public class CalificacionDTO {
         return calificacion;
     }
 
-    public CalificacionDTO setIdentificador(UUID identificador) {
+    public CalificacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public CalificacionDTO setPublicacion(PublicacionDTO publicacion) {
+    public CalificacionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
-    public CalificacionDTO setLector(LectorDTO lector) {
+    public CalificacionDTO setLector(final LectorDTO lector) {
         this.lector = UtilObject.getDefault(lector, LectorDTO.create());
         return this;
     }
 
-    public CalificacionDTO setFechaCalificacion(LocalDateTime fechaCalificacion) {
+    public CalificacionDTO setFechaCalificacion(final LocalDateTime fechaCalificacion) {
         this.fechaCalificacion = UtilDate.getDefault(fechaCalificacion);
         return this;
     }
 
-    public CalificacionDTO setCalificacion(String calificacion) {
+    public CalificacionDTO setCalificacion(final String calificacion) {
         this.calificacion = UtilText.applyTrim(calificacion);
         return this;
     }

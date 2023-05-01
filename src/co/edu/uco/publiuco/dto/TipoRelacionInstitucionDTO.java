@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class TipoRelacionInstitucionDTO {
+public final class TipoRelacionInstitucionDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
@@ -40,22 +40,22 @@ public class TipoRelacionInstitucionDTO {
         return estado;
     }
 
-    public TipoRelacionInstitucionDTO setIdentificador(UUID identificador) {
+    public TipoRelacionInstitucionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public TipoRelacionInstitucionDTO setNombre(String nombre) {
+    public TipoRelacionInstitucionDTO setNombre(final String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public TipoRelacionInstitucionDTO setDescripcion(String descripcion) {
+    public TipoRelacionInstitucionDTO setDescripcion(final String descripcion) {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }
 
-    public TipoRelacionInstitucionDTO setEstado(EstadoDTO estado) {
+    public TipoRelacionInstitucionDTO setEstado(final EstadoDTO estado) {
         this.estado = estado;
         return this;
     }

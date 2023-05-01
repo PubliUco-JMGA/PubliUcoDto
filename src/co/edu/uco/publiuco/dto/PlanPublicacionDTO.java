@@ -8,7 +8,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class PlanPublicacionDTO {
+public final class PlanPublicacionDTO {
     private UUID identificador;
     private PublicacionDTO publicacion;
     private Double precio;
@@ -60,32 +60,32 @@ public class PlanPublicacionDTO {
         return estado;
     }
 
-    public PlanPublicacionDTO setIdentificador(UUID identificador) {
+    public PlanPublicacionDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public PlanPublicacionDTO setPublicacion(PublicacionDTO publicacion) {
+    public PlanPublicacionDTO setPublicacion(final PublicacionDTO publicacion) {
         this.publicacion = UtilObject.getDefault(publicacion, PublicacionDTO.create());
         return this;
     }
 
-    public PlanPublicacionDTO setPrecio(Double precio) {
+    public PlanPublicacionDTO setPrecio(final Double precio) {
         this.precio = UtilNumber.getDefaultReal(precio);
         return this;
     }
 
-    public PlanPublicacionDTO setFechaDesde(LocalDateTime fechaDesde) {
+    public PlanPublicacionDTO setFechaDesde(final LocalDateTime fechaDesde) {
         this.fechaDesde = UtilDate.getDefault(fechaDesde);
         return this;
     }
 
-    public PlanPublicacionDTO setFechaHasta(LocalDateTime fechaHasta) {
+    public PlanPublicacionDTO setFechaHasta(final LocalDateTime fechaHasta) {
         this.fechaHasta = UtilDate.getDefault(fechaHasta);
         return this;
     }
 
-    public PlanPublicacionDTO setEstado(EstadoDTO estado) {
+    public PlanPublicacionDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }

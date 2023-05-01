@@ -5,7 +5,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 
 import java.util.UUID;
 
-public class TipoReporteDTO {
+public final class TipoReporteDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
@@ -34,17 +34,17 @@ public class TipoReporteDTO {
     }
 
 
-    public TipoReporteDTO setIdentificador(UUID identificador) {
+    public TipoReporteDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public TipoReporteDTO setNombre(String nombre) {
+    public TipoReporteDTO setNombre(final String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public TipoReporteDTO setDescripcion(String descripcion) {
+    public TipoReporteDTO setDescripcion(final String descripcion) {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }

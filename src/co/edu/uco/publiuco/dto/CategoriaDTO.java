@@ -7,7 +7,7 @@ import co.edu.uco.publiuco.crosscutting.utils.UtilUUID;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class CategoriaDTO {
+public final class CategoriaDTO {
     private UUID identificador;
     private CategoriaDTO categoriaPadre;
     private String nombre;
@@ -53,27 +53,27 @@ public class CategoriaDTO {
         return estado;
     }
 
-    public CategoriaDTO setIdentificador(UUID identificador) {
+    public CategoriaDTO setIdentificador(final UUID identificador) {
         this.identificador = UtilUUID.getDefault(identificador);
         return this;
     }
 
-    public CategoriaDTO setCategoriaPadre(CategoriaDTO categoriaPadre) {
+    public CategoriaDTO setCategoriaPadre(final CategoriaDTO categoriaPadre) {
         this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
         return this;
     }
 
-    public CategoriaDTO setNombre(String nombre) {
+    public CategoriaDTO setNombre(final String nombre) {
         this.nombre = UtilText.applyTrim(nombre);
         return this;
     }
 
-    public CategoriaDTO setDescripcion(String descripcion) {
+    public CategoriaDTO setDescripcion(final String descripcion) {
         this.descripcion = UtilText.applyTrim(descripcion);
         return this;
     }
 
-    public CategoriaDTO setEstado(EstadoDTO estado) {
+    public CategoriaDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
         return this;
     }
