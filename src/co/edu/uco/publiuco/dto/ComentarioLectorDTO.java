@@ -5,7 +5,6 @@ import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
 import co.edu.uco.publiuco.utils.UtilUUID;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 public final class ComentarioLectorDTO {
@@ -17,8 +16,6 @@ public final class ComentarioLectorDTO {
 	private String cotenido;
 	private LocalDateTime fechaCalificacion;
 	private EstadoDTO estado;
-
-	private static final ComentarioLectorDTO INSTANCE_DEFAULT = ComentarioLectorDTO.create();
 
 	public ComentarioLectorDTO() {
 		super();

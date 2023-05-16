@@ -6,7 +6,6 @@ import co.edu.uco.publiuco.utils.UtilText;
 import co.edu.uco.publiuco.utils.UtilUUID;
 
 import java.time.LocalDateTime;
-import java.util.Locale;
 import java.util.UUID;
 
 public final class ReporteDTO {
