@@ -8,21 +8,18 @@ import java.util.UUID;
 public final class EscritorDTO {
     private UUID identificador;
     private PersonaDTO datosPersona;
-    private TipoRelacionInstitucionDTO tipoRelacionInstitucion;
     private EstadoDTO estado;
 
     public EscritorDTO() {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setDatosPersona(PersonaDTO.create());
-        setTipoRelacionInstitucion(TipoRelacionInstitucionDTO.create());
         setEstado(EstadoDTO.create());
     }
-    public EscritorDTO(UUID identificador, PersonaDTO datosPersona, TipoRelacionInstitucionDTO tipoRelacionInstitucion, EstadoDTO estado) {
+    public EscritorDTO(UUID identificador, PersonaDTO datosPersona, EstadoDTO estado) {
         super();
         setIdentificador(identificador);
         setDatosPersona(datosPersona);
-        setTipoRelacionInstitucion(tipoRelacionInstitucion);
         setEstado(estado);
     }
 
@@ -34,9 +31,6 @@ public final class EscritorDTO {
         return datosPersona;
     }
 
-    public TipoRelacionInstitucionDTO getTipoRelacionInstitucion() {
-        return tipoRelacionInstitucion;
-    }
 
     public EstadoDTO getEstado() {
         return estado;
@@ -52,10 +46,6 @@ public final class EscritorDTO {
         return this;
     }
 
-    public EscritorDTO setTipoRelacionInstitucion(final TipoRelacionInstitucionDTO tipoRelacionInstitucion) {
-        this.tipoRelacionInstitucion = UtilObject.getDefault(tipoRelacionInstitucion, TipoRelacionInstitucionDTO.create());
-        return this;
-    }
 
     public EscritorDTO setEstado(final EstadoDTO estado) {
         this.estado = UtilObject.getDefault(estado,EstadoDTO.create());

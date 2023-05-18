@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.utils.UtilBoolean;
 import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
 import co.edu.uco.publiuco.utils.UtilUUID;
@@ -9,6 +10,7 @@ import java.util.UUID;
 public final class CategoriaDTO {
     private UUID identificador;
     private CategoriaDTO categoriaPadre;
+    private boolean tienePadre;
     private String nombre;
     private String descripcion;
     private EstadoDTO estado;
@@ -79,4 +81,13 @@ public final class CategoriaDTO {
     public static CategoriaDTO create (){
         return new CategoriaDTO();
     }
+
+	public boolean tienePadre() {
+		return tienePadre;
+	}
+
+	public CategoriaDTO setTienePadre(boolean tienePadre) {
+		this.tienePadre = UtilBoolean.getDefault(tienePadre);
+		return this;
+	}
 }

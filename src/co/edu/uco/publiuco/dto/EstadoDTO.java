@@ -13,7 +13,7 @@ public final class EstadoDTO {
     private UUID identificador;
     private String nombre;
     private String descripcion;
-    private TipoEstadoDTO tipoEstado;
+    private TipoEstadoDTO tipo;
 
 
     public EstadoDTO() {
@@ -21,16 +21,16 @@ public final class EstadoDTO {
         setIdentificador(UtilUUID.getDefaultValue());
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
-        setTipoEstado(TipoEstadoDTO.create());
+        setTipo(TipoEstadoDTO.create());
     }
 
 
-    public EstadoDTO(UUID identificador, String nombre, TipoEstadoDTO tipoEstado, String descripcion) {
+    public EstadoDTO(UUID identificador, String nombre, TipoEstadoDTO tipo, String descripcion) {
         super();
         setIdentificador(identificador);
         setNombre(nombre);
         setDescripcion(descripcion);
-        setTipoEstado(tipoEstado);
+        setTipo(tipo);
     }
 
     public String getDescripcion() {
@@ -54,9 +54,9 @@ public final class EstadoDTO {
         return this;
     }
 
-    public final EstadoDTO setTipoEstado(final TipoEstadoDTO tipoEstado) {
+    public final EstadoDTO setTipo(final TipoEstadoDTO tipoEstado) {
 
-        this.tipoEstado = UtilObject.getDefault(tipoEstado, TipoEstadoDTO.create());
+        this.tipo = UtilObject.getDefault(tipoEstado, TipoEstadoDTO.create());
         return this;
     }
 
@@ -68,8 +68,8 @@ public final class EstadoDTO {
         return nombre;
     }
 
-    public final TipoEstadoDTO getTipoEstado() {
-        return tipoEstado;
+    public final TipoEstadoDTO getTipo() {
+        return tipo;
     }
 
     public static EstadoDTO create (){

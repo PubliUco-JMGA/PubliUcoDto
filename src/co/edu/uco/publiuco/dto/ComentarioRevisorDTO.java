@@ -9,23 +9,23 @@ import java.util.UUID;
 public final class ComentarioRevisorDTO {
     private UUID identificador;
     private RevisorRevisionDTO revisorRevision;
-    private TipoComentarioRevisorDTO tipoComentarioRevisor;
-    private String comentario;
+    private TipoComentarioRevisorDTO tipo;
+    private String contenido;
 
-    public ComentarioRevisorDTO(UUID identificador, RevisorRevisionDTO revisorRevision, TipoComentarioRevisorDTO tipoComentarioRevisor, String comentario) {
+    public ComentarioRevisorDTO(UUID identificador, RevisorRevisionDTO revisorRevision, TipoComentarioRevisorDTO tipo, String contenido) {
         super();
         setIdentificador(identificador);
         setRevisorRevision(revisorRevision);
-        setTipoComentarioRevisor(tipoComentarioRevisor);
-        setComentario(comentario);
+        setTipo(tipo);
+        setContenido(contenido);
 
     }
     public ComentarioRevisorDTO() {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setRevisorRevision(RevisorRevisionDTO.create());
-        setTipoComentarioRevisor(TipoComentarioRevisorDTO.create());
-        setComentario(UtilText.getDefaultValue());
+        setTipo(TipoComentarioRevisorDTO.create());
+        setContenido(UtilText.getDefaultValue());
 
     }
 
@@ -37,12 +37,12 @@ public final class ComentarioRevisorDTO {
         return revisorRevision;
     }
 
-    public TipoComentarioRevisorDTO getTipoComentarioRevisor() {
-        return tipoComentarioRevisor;
+    public TipoComentarioRevisorDTO getTipo() {
+        return tipo;
     }
 
-    public String getComentario() {
-        return comentario;
+    public String getContenido() {
+        return contenido;
     }
 
     public ComentarioRevisorDTO setIdentificador(final UUID identificador) {
@@ -55,13 +55,13 @@ public final class ComentarioRevisorDTO {
         return this;
     }
 
-    public ComentarioRevisorDTO setTipoComentarioRevisor(final TipoComentarioRevisorDTO tipoComentarioRevisor) {
-        this.tipoComentarioRevisor = UtilObject.getDefault(tipoComentarioRevisor, TipoComentarioRevisorDTO.create());
+    public ComentarioRevisorDTO setTipo(final TipoComentarioRevisorDTO tipoComentarioRevisor) {
+        this.tipo = UtilObject.getDefault(tipoComentarioRevisor, TipoComentarioRevisorDTO.create());
         return this;
     }
 
-    public ComentarioRevisorDTO setComentario(final String comentario) {
-        this.comentario = UtilText.applyTrim(comentario);
+    public ComentarioRevisorDTO setContenido(final String contenido) {
+        this.contenido = UtilText.applyTrim(contenido);
         return this;
     }
     public static ComentarioRevisorDTO create (){

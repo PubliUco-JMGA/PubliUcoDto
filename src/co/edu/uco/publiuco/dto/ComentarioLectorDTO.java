@@ -1,5 +1,6 @@
 package co.edu.uco.publiuco.dto;
 
+import co.edu.uco.publiuco.utils.UtilBoolean;
 import co.edu.uco.publiuco.utils.UtilDate;
 import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
@@ -13,8 +14,9 @@ public final class ComentarioLectorDTO {
 	private LectorDTO lector;
 	private PublicacionDTO publicacion;
 	private ComentarioLectorDTO comentarioPadre;
-	private String cotenido;
-	private LocalDateTime fechaCalificacion;
+	private boolean tienePadre;
+	private String contenido;
+	private LocalDateTime fechaComentario;
 	private EstadoDTO estado;
 
 	public ComentarioLectorDTO() {
@@ -24,21 +26,23 @@ public final class ComentarioLectorDTO {
 		setPublicacion(PublicacionDTO.create());
 		setComentarioPadre(ComentarioLectorDTO.create());
 		setCotenido(UtilText.getDefaultValue());
-		setFechaCalificacion(UtilDate.getDefaultValue());
-		setEstado(EstadoDTO.create() );
+		setFechaComentario(UtilDate.getDefaultValue());
+		setEstado(EstadoDTO.create());
+		setTienePadre(UtilBoolean.getDefaultValue());
 	}
 
 
 
-	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaCalificacion, EstadoDTO estado) {
+	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaComentario, EstadoDTO estado, boolean tienePadre) {
 		super();
 		setIdentificador(identificador);
 		setLector(lector);
 		setComentarioPadre(comentarioPadre);
 		setPublicacion(publicacion);
 		setCotenido(contenido);
-		setFechaCalificacion(fechaCalificacion);
+		setFechaComentario(fechaComentario);
 		setEstado(estado);
+		setTienePadre(tienePadre);
 	}
 
 
@@ -59,11 +63,11 @@ public final class ComentarioLectorDTO {
 	}
 
 	public String getCotenido() {
-		return cotenido;
+		return contenido;
 	}
 
-	public LocalDateTime getFechaCalificacion() {
-		return fechaCalificacion;
+	public LocalDateTime getFechaComentario() {
+		return fechaComentario;
 	}
 
 	public EstadoDTO getEstado() {
@@ -91,21 +95,32 @@ public final class ComentarioLectorDTO {
 	}
 
 	public ComentarioLectorDTO setEstado(final EstadoDTO estado) {
-		this.estado = estado;
+		this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
 		return this;
 	}
 
 	public ComentarioLectorDTO setCotenido(final String cotenido) {
-		this.cotenido = cotenido;
+		this.contenido = UtilText.applyTrim(cotenido);
 		return this;
 	}
 
-	public ComentarioLectorDTO setFechaCalificacion(final LocalDateTime fechaCalificacion) {
-		this.fechaCalificacion = fechaCalificacion;
+	public ComentarioLectorDTO setFechaComentario(final LocalDateTime fechaComentario) {
+		this.fechaComentario = UtilDate.getDefault(fechaComentario);
 		return this;
 	}
 
 	public static ComentarioLectorDTO create (){
 		return new ComentarioLectorDTO();
+	}
+
+
+
+	public boolean tienePadre() {
+		return tienePadre;
+	}
+
+	public ComentarioLectorDTO setTienePadre(boolean tienePadre) {
+		this.tienePadre = UtilBoolean.getDefault(tienePadre);
+		return this;
 	}
 }

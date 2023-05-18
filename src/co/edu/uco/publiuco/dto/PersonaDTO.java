@@ -15,10 +15,10 @@ public final class PersonaDTO {
     private String primerApellido;
     private String segundoApellido;
     private String correoElectronico;
-    private PaisDTO indicadorPais;
-    private String numeroTelefonoMovil;
+    private PaisDTO paisTelefono;
+    private String numeroTelefono;
     private EstadoDTO estado;
-    private TipoRelacionInstitucionDTO tipoRelacionInstitucion;
+    private TipoRelacionInstitucionDTO relacionInstitucion;
 
     public PersonaDTO() {
         super();
@@ -30,12 +30,12 @@ public final class PersonaDTO {
         setPrimerApellido(UtilText.getDefaultValue());
         setSegundoApellido(UtilText.getDefaultValue());
         setCorreoElectronico(UtilText.getDefaultValue());
-        setIndicadorPais(PaisDTO.create());
-        setNumeroTelefonoMovil(UtilText.getDefaultValue());
+        setPaisTelefono(PaisDTO.create());
+        setNumeroTelefono(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
     }
 
-    public PersonaDTO(UUID identificador, TipoIdentificacionDTO tipoIdentificacionDTO, String numeroIdentificacion, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String correoElectronico, PaisDTO indicadorPais, String numeroTelefonoMovil, EstadoDTO estado, TipoRelacionInstitucionDTO tipoRelacionInstitucion) {
+    public PersonaDTO(UUID identificador, TipoIdentificacionDTO tipoIdentificacionDTO, String numeroIdentificacion, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String correoElectronico, PaisDTO paisTelefono, String numeroTelefono, EstadoDTO estado, TipoRelacionInstitucionDTO relacionInstitucion) {
         super();
         setIdentificador(identificador);
         setTipoIdentificacionDTO(tipoIdentificacionDTO);
@@ -45,9 +45,9 @@ public final class PersonaDTO {
         setPrimerApellido(primerApellido);
         setSegundoApellido(segundoApellido);
         setCorreoElectronico(correoElectronico);
-        setIndicadorPais(indicadorPais);
-        setNumeroTelefonoMovil(numeroTelefonoMovil);
-        setTipoRelacionInstitucion(tipoRelacionInstitucion);
+        setPaisTelefono(paisTelefono);
+        setNumeroTelefono(numeroTelefono);
+        setRelacionInstitucion(relacionInstitucion);
         setEstado(estado);
     }
 
@@ -83,20 +83,20 @@ public final class PersonaDTO {
         return correoElectronico;
     }
 
-    public PaisDTO getIndicadorPais() {
-        return indicadorPais;
+    public PaisDTO getPaisTelefono() {
+        return paisTelefono;
     }
 
-    public String getNumeroTelefonoMovil() {
-        return numeroTelefonoMovil;
+    public String getNumeroTelefono() {
+        return numeroTelefono;
     }
 
     public EstadoDTO getEstado() {
         return estado;
     }
 
-    public TipoRelacionInstitucionDTO getTipoRelacionInstitucion() {
-        return tipoRelacionInstitucion;
+    public TipoRelacionInstitucionDTO getRelacionInstitucion() {
+        return relacionInstitucion;
     }
 
     public PersonaDTO setIdentificador(final UUID identificador) {
@@ -139,13 +139,13 @@ public final class PersonaDTO {
         return this;
     }
 
-    public PersonaDTO setIndicadorPais(final PaisDTO indicadorPais) {
-        this.indicadorPais = UtilObject.getDefault(indicadorPais, PaisDTO.create());
+    public PersonaDTO setPaisTelefono(final PaisDTO paisTelefono) {
+        this.paisTelefono = UtilObject.getDefault(paisTelefono, PaisDTO.create());
         return this;
     }
 
-    public PersonaDTO setNumeroTelefonoMovil(final String numeroTelefonoMovil) {
-        this.numeroTelefonoMovil = UtilText.applyTrim(numeroTelefonoMovil);
+    public PersonaDTO setNumeroTelefono(final String numeroTelefonoMovil) {
+        this.numeroTelefono = UtilText.applyTrim(numeroTelefonoMovil);
         return this;
     }
 
@@ -154,8 +154,8 @@ public final class PersonaDTO {
         return this;
     }
 
-    public PersonaDTO setTipoRelacionInstitucion(final TipoRelacionInstitucionDTO tipoRelacionInstitucion) {
-        this.tipoRelacionInstitucion = UtilObject.getDefault(tipoRelacionInstitucion, TipoRelacionInstitucionDTO.create());
+    public PersonaDTO setRelacionInstitucion(final TipoRelacionInstitucionDTO relacionInstitucion) {
+        this.relacionInstitucion = UtilObject.getDefault(relacionInstitucion, TipoRelacionInstitucionDTO.create());
         return this;
     }
     public static PersonaDTO create (){

@@ -1,4 +1,4 @@
-package co.edu.uco.publiuco.dto;
+	package co.edu.uco.publiuco.dto;
 
 import co.edu.uco.publiuco.utils.UtilDate;
 import co.edu.uco.publiuco.utils.UtilObject;
@@ -13,28 +13,41 @@ public final class ReporteDTO {
     private LectorDTO lector;
     private ComentarioLectorDTO comentario;
     private String razon;
-    private TipoReporteDTO tipoReporte;
+    private TipoReporteDTO tipo;
     private LocalDateTime fechaReporte;
+    private EstadoDTO estado;
 
     public ReporteDTO() {
         setIdentificador(UtilUUID.getDefaultValue());
         setLector(LectorDTO.create());
         setComentario(ComentarioLectorDTO.create());
         setRazon(UtilText.getDefaultValue());
-        setTipoReporte(TipoReporteDTO.create());
+        setTipo(TipoReporteDTO.create());
         setFechaReporte(UtilDate.getDefaultValue());
+        setEstado(EstadoDTO.create());
     }
 
-    public ReporteDTO(UUID identificador, LectorDTO lector, ComentarioLectorDTO comentario, String razon, TipoReporteDTO tipoReporte, LocalDateTime fechaReporte) {
+    public ReporteDTO(UUID identificador, LectorDTO lector, ComentarioLectorDTO comentario, String razon, TipoReporteDTO tipo, LocalDateTime fechaReporte,EstadoDTO estado) {
         setIdentificador(identificador);
         setLector(lector);
         setComentario(comentario);
         setRazon(razon);
-        setTipoReporte(tipoReporte);
+        setTipo(tipo);
         setFechaReporte(fechaReporte);
+        setEstado(estado);
     }
 
-    public UUID getIdentificador() {
+    
+    public EstadoDTO getEstado() {
+		return estado;
+	}
+
+	public ReporteDTO setEstado(EstadoDTO estado) {
+		this.estado = UtilObject.getDefault(estado, EstadoDTO.create());
+		return this;
+	}
+
+	public UUID getIdentificador() {
         return identificador;
     }
 
@@ -50,8 +63,8 @@ public final class ReporteDTO {
         return razon;
     }
 
-    public TipoReporteDTO getTipoReporte() {
-        return tipoReporte;
+    public TipoReporteDTO getTipo() {
+        return tipo;
     }
 
     public LocalDateTime getFechaReporte() {
@@ -78,8 +91,8 @@ public final class ReporteDTO {
         return this;
     }
 
-    public ReporteDTO setTipoReporte(final TipoReporteDTO tipoReporte) {
-        this.tipoReporte = UtilObject.getDefault(tipoReporte, TipoReporteDTO.create());
+    public ReporteDTO setTipo(final TipoReporteDTO tipoReporte) {
+        this.tipo = UtilObject.getDefault(tipoReporte, TipoReporteDTO.create());
         return this;
     }
 
