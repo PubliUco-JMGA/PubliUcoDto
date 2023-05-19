@@ -33,6 +33,7 @@ public final class PersonaDTO {
         setPaisTelefono(PaisDTO.create());
         setNumeroTelefono(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
+        setRelacionInstitucion(TipoRelacionInstitucionDTO.create());
     }
 
     public PersonaDTO(UUID identificador, TipoIdentificacionDTO tipoIdentificacionDTO, String numeroIdentificacion, String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String correoElectronico, PaisDTO paisTelefono, String numeroTelefono, EstadoDTO estado, TipoRelacionInstitucionDTO relacionInstitucion) {

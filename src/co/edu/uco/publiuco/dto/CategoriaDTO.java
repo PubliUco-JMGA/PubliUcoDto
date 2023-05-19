@@ -22,15 +22,17 @@ public final class CategoriaDTO {
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
+        setTienePadre(UtilBoolean.getDefaultValue());
     }
 
-    public CategoriaDTO(UUID identificador, CategoriaDTO categoriaPadre, String nombre, String descripcion, EstadoDTO estado) {
+    public CategoriaDTO(UUID identificador, CategoriaDTO categoriaPadre, String nombre, String descripcion, EstadoDTO estado, boolean tienePadre) {
         super();
         setIdentificador(identificador);
         setCategoriaPadre(categoriaPadre);
         setNombre(nombre);
         setDescripcion(descripcion);
         setEstado(estado);
+        setTienePadre(tienePadre);
     }
 
 
