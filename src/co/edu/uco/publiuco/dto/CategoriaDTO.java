@@ -62,8 +62,12 @@ public final class CategoriaDTO {
     }
 
     public CategoriaDTO setCategoriaPadre(final CategoriaDTO categoriaPadre) {
-        this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
-        return this;
+        if(tienePadre()) {
+            this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
+        }else {
+			this.categoriaPadre = (CategoriaDTO) UtilObject.getDefaultValue();
+        }
+    	return this;
     }
 
     public CategoriaDTO setNombre(final String nombre) {

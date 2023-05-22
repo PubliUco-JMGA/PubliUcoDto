@@ -103,8 +103,12 @@ public final class VersionDTO {
 
 
     public VersionDTO setVersionAnterior(final VersionDTO versionAnterior) {
-        this.versionAnterior = UtilObject.getDefault(versionAnterior, VersionDTO.create());
-        return this;
+    	if(tieneVersionAnterior()) {
+            this.versionAnterior = UtilObject.getDefault(versionAnterior, VersionDTO.create());
+        }else {
+			this.versionAnterior = (VersionDTO) UtilObject.getDefaultValue();
+        }
+    	return this;
     }
 
     public VersionDTO setNumeroVersion(final Integer numeroVersion) {

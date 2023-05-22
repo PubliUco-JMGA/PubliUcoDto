@@ -90,7 +90,11 @@ public final class ComentarioLectorDTO {
 	}
 
 	public ComentarioLectorDTO setComentarioPadre(final ComentarioLectorDTO comentarioPadre) {
-		this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioLectorDTO.create());
+		if(tienePadre()) {
+			this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioLectorDTO.create());
+		}else {
+			this.comentarioPadre = (ComentarioLectorDTO) UtilObject.getDefaultValue();
+		}
 		return this;
 	}
 
