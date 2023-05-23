@@ -106,7 +106,7 @@ public final class VersionDTO {
     	if(tieneVersionAnterior()) {
             this.versionAnterior = UtilObject.getDefault(versionAnterior, VersionDTO.create());
         }else {
-			this.versionAnterior = (VersionDTO) UtilObject.getDefaultValue();
+			this.versionAnterior = (VersionDTO) UtilObject.getNullValue();
         }
     	return this;
     }

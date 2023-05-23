@@ -93,7 +93,7 @@ public final class ComentarioLectorDTO {
 		if(tienePadre()) {
 			this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioLectorDTO.create());
 		}else {
-			this.comentarioPadre = (ComentarioLectorDTO) UtilObject.getDefaultValue();
+			this.comentarioPadre = (ComentarioLectorDTO) UtilObject.getNullValue();
 		}
 		return this;
 	}

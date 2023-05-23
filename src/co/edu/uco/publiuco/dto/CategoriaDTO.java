@@ -65,7 +65,7 @@ public final class CategoriaDTO {
         if(tienePadre()) {
             this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
         }else {
-			this.categoriaPadre = (CategoriaDTO) UtilObject.getDefaultValue();
+			this.categoriaPadre = (CategoriaDTO) UtilObject.getNullValue();
         }
     	return this;
     }
