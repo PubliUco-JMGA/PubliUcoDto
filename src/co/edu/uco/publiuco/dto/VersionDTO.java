@@ -16,13 +16,14 @@ public final class VersionDTO {
     private String resumen;
     private String cuerpo;
     private EstadoDTO estado;
+    private static final VersionDTO VERSION_POR_DEFECTO = new VersionDTO(UtilUUID.getDefaultValue(),null,UtilNumber.getIntegerDefaultValue(),UtilDate.getDefaultValue(),UtilDate.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue()); 
 
     private static final VersionDTO INSTANCE_DEFAULT = VersionDTO.create();
 
 
     public VersionDTO() {
         setIdentificador(UtilUUID.getDefaultValue());
-        setVersionAnterior(getDefaultValue());
+        setVersionAnterior(VERSION_POR_DEFECTO);
         setNumeroVersion(UtilNumber.getIntegerDefaultValue());
         setFechaCreacion(UtilDate.getDefaultValue());
         setFechaUltimaModificacion(UtilDate.getDefaultValue());

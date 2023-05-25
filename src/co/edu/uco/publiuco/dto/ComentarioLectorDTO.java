@@ -18,13 +18,14 @@ public final class ComentarioLectorDTO {
 	private String contenido;
 	private LocalDateTime fechaComentario;
 	private EstadoDTO estado;
+	private static final ComentarioLectorDTO PADRE = new ComentarioLectorDTO(UtilUUID.generateNewUUID(),LectorDTO.create(),PublicacionDTO.create(),null,UtilText.getDefaultValue(),UtilDate.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue());
 
 	public ComentarioLectorDTO() {
 		super();
 		setIdentificador(UtilUUID.getDefaultValue());
 		setLector(LectorDTO.create());
 		setPublicacion(PublicacionDTO.create());
-		setComentarioPadre(ComentarioLectorDTO.create());
+		setComentarioPadre(PADRE);
 		setCotenido(UtilText.getDefaultValue());
 		setFechaComentario(UtilDate.getDefaultValue());
 		setEstado(EstadoDTO.create());
@@ -34,7 +35,6 @@ public final class ComentarioLectorDTO {
 
 
 	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaComentario, EstadoDTO estado, boolean tienePadre) {
-		super();
 		setIdentificador(identificador);
 		setLector(lector);
 		setComentarioPadre(comentarioPadre);

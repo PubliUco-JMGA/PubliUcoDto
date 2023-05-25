@@ -14,17 +14,9 @@ public final class CategoriaDTO {
     private String nombre;
     private String descripcion;
     private EstadoDTO estado;
+    private static final CategoriaDTO PADRE = new CategoriaDTO(UtilUUID.generateNewUUID(), null, "Padre", UtilText.getDefaultValue(), EstadoDTO.create(), UtilBoolean.getDefaultValue());
 
-    public CategoriaDTO() {
-        super();
-        setIdentificador(UtilUUID.getDefaultValue());
-        setCategoriaPadre(CategoriaDTO.create());
-        setNombre(UtilText.getDefaultValue());
-        setDescripcion(UtilText.getDefaultValue());
-        setEstado(EstadoDTO.create());
-        setTienePadre(UtilBoolean.getDefaultValue());
-    }
-
+    
     public CategoriaDTO(UUID identificador, CategoriaDTO categoriaPadre, String nombre, String descripcion, EstadoDTO estado, boolean tienePadre) {
         super();
         setIdentificador(identificador);
@@ -33,8 +25,16 @@ public final class CategoriaDTO {
         setDescripcion(descripcion);
         setEstado(estado);
         setTienePadre(tienePadre);
+    }    
+    public CategoriaDTO() {
+        super();
+        setIdentificador(UtilUUID.getDefaultValue());
+        setTienePadre(UtilBoolean.getDefaultValue());
+        setCategoriaPadre(PADRE);
+        setNombre(UtilText.getDefaultValue());
+        setDescripcion(UtilText.getDefaultValue());
+        setEstado(EstadoDTO.create());
     }
-
 
     public UUID getIdentificador() {
         return identificador;
@@ -65,7 +65,7 @@ public final class CategoriaDTO {
         if(tienePadre()) {
             this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
         }else {
-			this.categoriaPadre = (CategoriaDTO) UtilObject.getNullValue();
+			this.categoriaPadre = null;
         }
     	return this;
     }
@@ -96,4 +96,5 @@ public final class CategoriaDTO {
 		this.tienePadre = UtilBoolean.getDefault(tienePadre);
 		return this;
 	}
+	
 }
