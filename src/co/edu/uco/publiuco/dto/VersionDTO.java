@@ -16,9 +16,8 @@ public final class VersionDTO {
     private String resumen;
     private String cuerpo;
     private EstadoDTO estado;
-    private static final VersionDTO VERSION_POR_DEFECTO = new VersionDTO(UtilUUID.getDefaultValue(),null,UtilNumber.getIntegerDefaultValue(),UtilDate.getDefaultValue(),UtilDate.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue()); 
-
-    private static final VersionDTO INSTANCE_DEFAULT = VersionDTO.create();
+    private static final String UUID_VERSION_POR_DEFECTO = "";
+    private static final VersionDTO VERSION_POR_DEFECTO = new VersionDTO(UtilUUID.generateUUIDFromString(UUID_VERSION_POR_DEFECTO),null,UtilNumber.getIntegerDefaultValue(),UtilDate.getDefaultValue(),UtilDate.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),UtilText.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue()); 
 
 
     public VersionDTO() {
@@ -47,16 +46,13 @@ public final class VersionDTO {
         setTieneVersionAnterior(tieneVersionAnterior);
     }
 
-    public static VersionDTO getDefaultValue() {
-        return INSTANCE_DEFAULT;
-    }
 
     public UUID getIdentificador() {
         return identificador;
     }
 
 
-    public boolean tieneVersionAnterior() {
+    public boolean isTieneVersionAnterior() {
 		return tieneVersionAnterior;
 	}
 
@@ -104,10 +100,10 @@ public final class VersionDTO {
 
 
     public VersionDTO setVersionAnterior(final VersionDTO versionAnterior) {
-    	if(tieneVersionAnterior()) {
+    	if(isTieneVersionAnterior()) {
             this.versionAnterior = UtilObject.getDefault(versionAnterior, VersionDTO.create());
         }else {
-			this.versionAnterior = (VersionDTO) UtilObject.getNullValue();
+			this.versionAnterior = VERSION_POR_DEFECTO;
         }
     	return this;
     }

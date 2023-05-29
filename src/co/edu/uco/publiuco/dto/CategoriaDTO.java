@@ -14,7 +14,11 @@ public final class CategoriaDTO {
     private String nombre;
     private String descripcion;
     private EstadoDTO estado;
-    private static final CategoriaDTO PADRE = new CategoriaDTO(UtilUUID.generateNewUUID(), null, "Padre", UtilText.getDefaultValue(), EstadoDTO.create(), UtilBoolean.getDefaultValue());
+    private static final String UUID_CATEGORIA_RAIZ = ""; 
+    private static final CategoriaDTO RAIZ;
+    static{
+    	RAIZ = new CategoriaDTO(UtilUUID.generateUUIDFromString(UUID_CATEGORIA_RAIZ), null, "Padre", UtilText.getDefaultValue(), EstadoDTO.create(), UtilBoolean.getDefaultValue());
+    }
 
     
     public CategoriaDTO(UUID identificador, CategoriaDTO categoriaPadre, String nombre, String descripcion, EstadoDTO estado, boolean tienePadre) {
@@ -30,7 +34,7 @@ public final class CategoriaDTO {
         super();
         setIdentificador(UtilUUID.getDefaultValue());
         setTienePadre(UtilBoolean.getDefaultValue());
-        setCategoriaPadre(PADRE);
+        setCategoriaPadre(RAIZ);
         setNombre(UtilText.getDefaultValue());
         setDescripcion(UtilText.getDefaultValue());
         setEstado(EstadoDTO.create());
@@ -62,10 +66,10 @@ public final class CategoriaDTO {
     }
 
     public CategoriaDTO setCategoriaPadre(final CategoriaDTO categoriaPadre) {
-        if(tienePadre()) {
+        if(isTienePadre()) {
             this.categoriaPadre = UtilObject.getDefault(categoriaPadre, CategoriaDTO.create());
         }else {
-			this.categoriaPadre = null;
+			this.categoriaPadre = RAIZ;
         }
     	return this;
     }
@@ -88,7 +92,7 @@ public final class CategoriaDTO {
         return new CategoriaDTO();
     }
 
-	public boolean tienePadre() {
+	public boolean isTienePadre() {
 		return tienePadre;
 	}
 

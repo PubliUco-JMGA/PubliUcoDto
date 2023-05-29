@@ -1,13 +1,14 @@
 package co.edu.uco.publiuco.dto;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 import co.edu.uco.publiuco.utils.UtilBoolean;
 import co.edu.uco.publiuco.utils.UtilDate;
 import co.edu.uco.publiuco.utils.UtilObject;
 import co.edu.uco.publiuco.utils.UtilText;
 import co.edu.uco.publiuco.utils.UtilUUID;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
 public final class ComentarioLectorDTO {
 
 	private UUID identificador;
@@ -18,23 +19,31 @@ public final class ComentarioLectorDTO {
 	private String contenido;
 	private LocalDateTime fechaComentario;
 	private EstadoDTO estado;
-	private static final ComentarioLectorDTO PADRE = new ComentarioLectorDTO(UtilUUID.generateNewUUID(),LectorDTO.create(),PublicacionDTO.create(),null,UtilText.getDefaultValue(),UtilDate.getDefaultValue(),EstadoDTO.create(),UtilBoolean.getDefaultValue());
+	private static final String UUID_COMENTARIO_RAIZ = "e1197bb4-2978-49f8-baaa-fd69d694dffa";
+	private static final ComentarioLectorDTO RAIZ;
+
+	static {
+		RAIZ = new ComentarioLectorDTO(UtilUUID.generateUUIDFromString(UUID_COMENTARIO_RAIZ),
+
+				LectorDTO.create(), PublicacionDTO.create(), null, UtilText.getDefaultValue(),
+				UtilDate.getDefaultValue(), EstadoDTO.create(), UtilBoolean.getDefaultValue());
+	}
 
 	public ComentarioLectorDTO() {
 		super();
 		setIdentificador(UtilUUID.getDefaultValue());
 		setLector(LectorDTO.create());
 		setPublicacion(PublicacionDTO.create());
-		setComentarioPadre(PADRE);
+		setComentarioPadre(RAIZ);
 		setCotenido(UtilText.getDefaultValue());
 		setFechaComentario(UtilDate.getDefaultValue());
 		setEstado(EstadoDTO.create());
 		setTienePadre(UtilBoolean.getDefaultValue());
 	}
 
-
-
-	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion, ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaComentario, EstadoDTO estado, boolean tienePadre) {
+	public ComentarioLectorDTO(UUID identificador, LectorDTO lector, PublicacionDTO publicacion,
+			ComentarioLectorDTO comentarioPadre, String contenido, LocalDateTime fechaComentario, EstadoDTO estado,
+			boolean tienePadre) {
 		setIdentificador(identificador);
 		setLector(lector);
 		setComentarioPadre(comentarioPadre);
@@ -44,7 +53,6 @@ public final class ComentarioLectorDTO {
 		setEstado(estado);
 		setTienePadre(tienePadre);
 	}
-
 
 	public UUID getIdentificador() {
 		return identificador;
@@ -90,10 +98,10 @@ public final class ComentarioLectorDTO {
 	}
 
 	public ComentarioLectorDTO setComentarioPadre(final ComentarioLectorDTO comentarioPadre) {
-		if(tienePadre()) {
+		if (isTienePadre()) {
 			this.comentarioPadre = UtilObject.getDefault(comentarioPadre, ComentarioLectorDTO.create());
-		}else {
-			this.comentarioPadre = (ComentarioLectorDTO) UtilObject.getNullValue();
+		} else {
+			this.comentarioPadre = RAIZ;
 		}
 		return this;
 	}
@@ -113,13 +121,11 @@ public final class ComentarioLectorDTO {
 		return this;
 	}
 
-	public static ComentarioLectorDTO create (){
+	public static ComentarioLectorDTO create() {
 		return new ComentarioLectorDTO();
 	}
 
-
-
-	public boolean tienePadre() {
+	public boolean isTienePadre() {
 		return tienePadre;
 	}
 
